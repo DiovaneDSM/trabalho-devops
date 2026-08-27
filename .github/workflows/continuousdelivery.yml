@@ -15,7 +15,7 @@ jobs:
         with:
           name: projetozipado.zip
           path: |
-            '**.py'
+            **.py
             README.md
 
   deploy:
@@ -27,4 +27,5 @@ jobs:
           name: projetozipado.zip
       - name: Display structure of downloaded files
         run: ls -R
+
         
