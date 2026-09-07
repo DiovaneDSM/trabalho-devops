@@ -31,5 +31,6 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: .
+          file: ./Dockerfile
           push: false
           tags: user/app:latest
