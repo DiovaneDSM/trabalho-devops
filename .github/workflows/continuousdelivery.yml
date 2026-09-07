@@ -55,4 +55,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: user/app:latest
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/trabalho-devops:latest
