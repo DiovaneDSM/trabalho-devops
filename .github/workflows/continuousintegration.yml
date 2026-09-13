@@ -47,8 +47,8 @@ jobs:
       -
         uses: actions/checkout@v4
       -
-        name: Discord Notification
-        uses: tenzin1308/discord-notification@v1.0.0
+        name: Send Discord notification
+        uses: nitecon/discord-action@v2
         with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
 
