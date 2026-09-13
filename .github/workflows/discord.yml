@@ -1,0 +1,14 @@
+name: Notify Discord
+on: [push, pull_request, release]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    env:
+      ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Send Discord notification
+        uses: nitecon/discord-action@v2
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
