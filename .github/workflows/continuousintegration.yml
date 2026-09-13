@@ -7,7 +7,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
+      -
+        name: Check out repository code
         uses: actions/checkout@v6
 
       - name: Python Lint Code Scanning Action
@@ -37,3 +38,17 @@ jobs:
           file: ./Dockerfile
           push: false
           tags: user/app:latest
+
+  discord:
+    runs-on: ubuntu-latest
+    env:
+      ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+    steps:
+      -
+        uses: actions/checkout@v4
+      -
+        name: Send Discord notification
+        uses: nitecon/discord-action@v2
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
+
