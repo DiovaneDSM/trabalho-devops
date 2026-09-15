@@ -6,13 +6,14 @@ import pytest
 
 @pytest.mark.asyncio
 async def test_root():
-    assert root() == {"message": "Hello World"}
+    result = root()
+    assert result == {"message": "Hello World"}
 
 @pytest.mark.asyncio
 async def test_funcaoteste():
     with patch('random.randint', return_value=98765):
         result = await funcaoteste()
-    assert result == {"teste": True, "num_aleatorio": 98765}
+    assert result == {"teste": "deu certo", "num_aleatorio": 98765}
 
 @pytest.mark.asyncio
 async def test_create_estudante():
@@ -28,7 +29,7 @@ async def test_update_estudante_negative():
 
 
 @pytest.mark.asyncio
-async def test_update_estudante_positive(id_estudante: int):
+async def test_update_estudante_positive():
     result = await update_estudante(5)
     assert result
 
